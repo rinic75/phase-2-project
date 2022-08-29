@@ -18,9 +18,6 @@ function App() {
         <Route exact path="/">
           <MainPage items={items}/>
         </Route>
-        <Route path="/detail">
-          <div>Detail Page</div>
-        </Route>
         <Route path="/cart">
           <div>Cart Page</div>
         </Route>
