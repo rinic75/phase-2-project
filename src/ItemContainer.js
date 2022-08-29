@@ -1,10 +1,10 @@
 import React from "react";
-import ItemDetail from "./ItemDetail";
+import ItemCard from "./ItemCard";
 
 function ItemContainer({ items }) {
 
   const renderItems = items.map(item => { 
-    return <ItemDetail key={item.id} item={item} />
+    return <ItemCard key={item.id} item={item} />
   })
 
   return (

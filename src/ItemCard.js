@@ -1,6 +1,6 @@
 import React from "react";
 
-function ItemDetail({item}) {
+function ItemCard({item}) {
   const {title, content, price} = item
   return (
 
@@ -12,4 +12,4 @@ function ItemDetail({item}) {
   )
 }
 
-export default ItemDetail
+export default ItemCard
