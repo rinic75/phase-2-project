@@ -1,15 +1,19 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../App.css';
 
-import data from '../data';
 import NavBar from './NavBar';
 import { Route, Switch } from 'react-router-dom';
 import MainPage from './MainPage';
 import OrderPage from './OrderPage';
 
-
 function App() {
-  const [items, setItems] = useState(data)
+  const [items, setItems] = useState([])
+
+  useEffect(()=> {
+    fetch('http://localhost:3000/data')
+    .then(r=>r.json())
+    .then(data => setItems(data))
+  },[])
 
   return (
     <div className="App">
