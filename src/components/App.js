@@ -5,6 +5,7 @@ import data from '../data';
 import NavBar from './NavBar';
 import { Route, Switch } from 'react-router-dom';
 import MainPage from './MainPage';
+import OrderPage from './OrderPage';
 
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
       <Switch>
         <Route exact path="/">
           <MainPage items={items}/>
+        </Route>
+        <Route path="/order">
+          <OrderPage />
         </Route>
         <Route path="/cart">
           <div>Cart Page</div>
