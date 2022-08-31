@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import ItemModal from "./Modal";
 
 function ItemCard({ item }) {
-  const { img, title, price } = item
+  const { id, img, title, price } = item
   const history= useHistory();
   const [isOpen, setOpen] = useState(false)
   function handleClick() {
@@ -11,7 +11,7 @@ function ItemCard({ item }) {
   }
   function handleButtonClick(e) {
     e.stopPropagation()
-    history.push('/order')
+    history.push(`/order/${id}`)
   }
   return (
     <div className="col-md-4" onClick={handleClick}>
