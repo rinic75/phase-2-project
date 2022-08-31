@@ -3,23 +3,29 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-function ItemModal({ isOpen, setOpen }) {
-  
+function ItemModal({ isOpen, setOpen, item }) {
+  const {title, description, location, upload_date, price, contact} = item
 
   return (
     <>      
       <Modal
-        size="sm"
+        size="lg"
         show={isOpen}
         onHide={() => setOpen(false)}
-        aria-labelledby="example-modal-sizes-title-sm"
+        aria-labelledby="example-modal-sizes-title-lg"
       >
         <Modal.Header closeButton>
-          <Modal.Title id="example-modal-sizes-title-sm">
-            Small Modal
+          <Modal.Title id="example-modal-sizes-title-lg">
+            {title}
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>...</Modal.Body>
+        <Modal.Body>
+          <p>{description}</p>
+          <p>Location : {location}</p>
+          <p>Date : {upload_date}</p>
+          <p>Price : {price}</p>
+          <p>Contact : {contact}</p>
+        </Modal.Body>
       </Modal>
     </>
   );
