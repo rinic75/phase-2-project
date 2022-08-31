@@ -18,7 +18,8 @@ function OrderPage({items}) {
           <p>Location : {location}</p>
           <p>Posted at {upload_date}</p>
           <p>${price}</p>
-          <button className="btn btn-danger">Add Cart</button>|
+          <button className="btn btn-danger">Add Cart</button>
+          &nbsp;
           <button className="btn btn-danger" onClick={()=>{ history.goBack()}}>BACK</button>
         </div>
       </div>
