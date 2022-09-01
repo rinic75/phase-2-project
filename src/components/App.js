@@ -5,6 +5,7 @@ import NavBar from './NavBar';
 import { Route, Switch } from 'react-router-dom';
 import MainPage from './MainPage';
 import OrderPage from './OrderPage';
+import AddNew from './AddNew';
 
 function App() {
   const [items, setItems] = useState([])
@@ -29,8 +30,8 @@ function App() {
         <Route path="/cart">
           <div>Cart Page</div>
         </Route>
-        <Route path="/about">
-          <div>About Page</div>
+        <Route path="/new">
+          <AddNew />
         </Route>
       </Switch>
     </div>
