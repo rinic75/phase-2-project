@@ -1,7 +1,7 @@
 import React from "react";
 import ItemContainer from "./ItemContainer";
 
-function MainPage({items}) {
+function MainPage({items, admin}) {
   return (
     <>
       <div className='MainPage'>
@@ -13,7 +13,7 @@ function MainPage({items}) {
         </div>
       </div>
       <div>
-        <ItemContainer items={items} />
+        <ItemContainer items={items} admin={admin}/>
       </div>
     </>
   )

@@ -1,10 +1,10 @@
 import React from "react";
 import ItemCard from "./ItemCard";
 
-function ItemContainer({ items }) {
+function ItemContainer({ items, admin }) {
 
   const renderItems = items.map(item => { 
-    return <ItemCard key={item.id} item={item} />
+    return <ItemCard key={item.id} item={item} admin={admin}/>
   })
 
   return (

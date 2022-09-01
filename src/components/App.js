@@ -9,6 +9,7 @@ import AddNew from './AddNew';
 
 function App() {
   const [items, setItems] = useState([])
+  const [admin, setAdmin] = useState(false)
 
   useEffect(()=> {
     fetch('http://localhost:3000/data')
@@ -19,10 +20,10 @@ function App() {
   return (
     <div className="App">
 
-      <NavBar />      
+      <NavBar admin={admin} setAdmin={setAdmin} />      
       <Switch>
         <Route exact path="/">
-          <MainPage items={items}/>
+          <MainPage items={items} admin={admin}/>
         </Route>
         <Route path="/order/:id">
           <OrderPage items={items}/>
@@ -30,8 +31,8 @@ function App() {
         <Route path="/cart">
           <div>Cart Page</div>
         </Route>
-        <Route path="/new">
-          <AddNew />
+        <Route path="/new/:id">
+          <AddNew items={items}/>
         </Route>
       </Switch>
     </div>
