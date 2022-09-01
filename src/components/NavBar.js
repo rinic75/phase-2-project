@@ -17,7 +17,7 @@ function NavBar() {
             {admin? <Nav.Link as={Link} to="/new">Add</Nav.Link> : null}
         
           </Nav>
-          <button onClick={()=>setAdmin(prev=>!prev)}>Admin</button>
+          <button onClick={()=>setAdmin(prev=>!prev)}>{admin? "Admin" : "Guest"}</button>
         </Container>
       </Navbar>
   )
