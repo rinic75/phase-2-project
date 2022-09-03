@@ -4,9 +4,9 @@ import './App.css';
 import NavBar from './components/NavBar';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import MainPage from './components/MainPage';
-import OrderPage from './components/OrderPage';
 import EditItem from './components/EditItem';
 import NewItem from './components/NewItem';
+import Cart from './components/Cart';
 
 function App() {
   const [items, setItems] = useState([])
@@ -51,11 +51,8 @@ function App() {
         <Route exact path="/">
           <MainPage items={searchedItem} admin={admin} onHandleDelete={handleDelete}/>
         </Route>
-        <Route path="/order/:id">
-          <OrderPage items={items}/>
-        </Route>
         <Route path="/cart">
-          <div>Cart Page</div>
+          <Cart />
         </Route>
         <Route path="/edit/:id">
           <EditItem items={items} onHandleUpdate={handleUpdate}/>

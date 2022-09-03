@@ -23,7 +23,7 @@ function ItemCard({ item, admin, onHandleDelete }) {
   }
   function handleButtonClick(e) {
     e.stopPropagation()
-    history.push(`/order/${id}`)
+    history.push(`/cart`)
   }
   return (
     <div className="col-md-4" onClick={handleClick}>
@@ -34,7 +34,7 @@ function ItemCard({ item, admin, onHandleDelete }) {
       {admin? <button className="btn btn-danger" onClick={handleEditClick}>Edit</button> : null}
       &nbsp;
       {admin? <button className="btn btn-danger" onClick={handleDelete}>Delete</button> :
-      <button className="btn btn-danger" onClick={handleButtonClick}>Order</button> }
+      <button className="btn btn-danger" onClick={handleButtonClick}>Add to Cart</button> }
     </div>
   )
 }
