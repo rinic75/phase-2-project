@@ -1,10 +1,10 @@
 import React from "react";
 import ItemCard from "./ItemCard";
 
-function ItemContainer({ items, admin }) {
+function ItemContainer({ items, admin, onHandleDelete }) {
 
   const renderItems = items.map(item => { 
-    return <ItemCard key={item.id} item={item} admin={admin}/>
+    return <ItemCard key={item.id} item={item} admin={admin} onHandleDelete={onHandleDelete}/>
   })
 
   return (

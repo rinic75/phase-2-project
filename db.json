@@ -15,14 +15,6 @@
       "description": "Golf Iron",
       "location": "Urbana",
       "price": "130"
-    },
-    {
-      "id": 2,
-      "title": "Grey Yordan",
-      "img": "url",
-      "description": "Born in the States",
-      "location": "Champaign",
-      "price": 130000
     }
   ]
 }

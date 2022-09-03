@@ -29,6 +29,10 @@ function App() {
     setItems(updatedItems)
     history.push('/')
   }
+  function onHandleDelete (id) {
+    const updatedItems = items.filter(item => item.id !== id)
+    setItems(updatedItems)
+  }
 
   return (
     <div className="App">
@@ -36,7 +40,7 @@ function App() {
       <NavBar admin={admin} setAdmin={setAdmin} />      
       <Switch>
         <Route exact path="/">
-          <MainPage items={items} admin={admin}/>
+          <MainPage items={items} admin={admin} onHandleDelete={onHandleDelete}/>
         </Route>
         <Route path="/order/:id">
           <OrderPage items={items}/>

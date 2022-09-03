@@ -1,7 +1,7 @@
 import React from "react";
 import ItemContainer from "./ItemContainer";
 
-function MainPage({items, admin}) {
+function MainPage({items, admin, onHandleDelete}) {
   return (
     <>
       <div className='MainPage'>
@@ -13,7 +13,7 @@ function MainPage({items, admin}) {
         </div>
       </div>
       <div>
-        <ItemContainer items={items} admin={admin}/>
+        <ItemContainer items={items} admin={admin} onHandleDelete={onHandleDelete}/>
       </div>
     </>
   )

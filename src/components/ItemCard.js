@@ -2,20 +2,28 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import ItemModal from "./Modal";
 
-function ItemCard({ item, admin }) {
+function ItemCard({ item, admin, onHandleDelete }) {
   const { id, img, title, price } = item
   const history= useHistory();
   const [isOpen, setOpen] = useState(false)
   function handleClick() {
     setOpen(!isOpen)
   }
-  function handleButtonClick(e) {
-    e.stopPropagation()
-    history.push(`/order/${id}`)
-  }
   function handleEditClick(e) {
     e.stopPropagation()
     history.push(`/new/${id}`)
+  }
+  function handleDelete(e) {
+    e.stopPropagation()
+    fetch(`http://localhost:3000/data/${id}`, {
+      method: "DELETE"
+    })
+    .then(r=>r.json())
+    .then(()=>onHandleDelete(id))
+  }
+  function handleButtonClick(e) {
+    e.stopPropagation()
+    history.push(`/order/${id}`)
   }
   return (
     <div className="col-md-4" onClick={handleClick}>
@@ -25,7 +33,8 @@ function ItemCard({ item, admin }) {
       <p>{price}</p>
       {admin? <button className="btn btn-danger" onClick={handleEditClick}>Edit</button> : null}
       &nbsp;
-      <button className="btn btn-danger" onClick={handleButtonClick}>Order</button>
+      {admin? <button className="btn btn-danger" onClick={handleDelete}>Delete</button> :
+      <button className="btn btn-danger" onClick={handleButtonClick}>Order</button> }
     </div>
   )
 }
