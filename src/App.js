@@ -1,16 +1,17 @@
 import { useEffect, useState } from 'react';
-import '../App.css';
+import './App.css';
 
-import NavBar from './NavBar';
+import NavBar from './components/NavBar';
 import { Route, Switch, useHistory } from 'react-router-dom';
-import MainPage from './MainPage';
-import OrderPage from './OrderPage';
-import EditItem from './EditItem';
-import NewItem from './NewItem';
+import MainPage from './components/MainPage';
+import OrderPage from './components/OrderPage';
+import EditItem from './components/EditItem';
+import NewItem from './components/NewItem';
 
 function App() {
   const [items, setItems] = useState([])
   const [admin, setAdmin] = useState(false)
+  const [search, setSearch] = useState("")
   const history = useHistory()
 
   useEffect(()=> {
@@ -39,12 +40,16 @@ function App() {
     history.push('/')
   }
 
+  const searchedItem = items.filter(item => {
+    return item.title.toLowerCase().includes(search.toLocaleLowerCase())
+  })
+
   return (
     <div className="App">
-      <NavBar admin={admin} setAdmin={setAdmin} />      
+      <NavBar admin={admin} setAdmin={setAdmin} onSearch={setSearch}/>      
       <Switch>
         <Route exact path="/">
-          <MainPage items={items} admin={admin} onHandleDelete={handleDelete}/>
+          <MainPage items={searchedItem} admin={admin} onHandleDelete={handleDelete}/>
         </Route>
         <Route path="/order/:id">
           <OrderPage items={items}/>

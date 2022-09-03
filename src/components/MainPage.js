@@ -7,8 +7,8 @@ function MainPage({items, admin, onHandleDelete}) {
       <div className='MainPage'>
         <div className="container-fluid text-light p-5">
           <div className="container p-5">
-            <h1 className="display-3">Welcome to Chang's Shop</h1>
-            <p>Local Market</p>
+            <h1 className="display-3">JFF Pro Shop</h1>
+            <p>Golf Club</p>
           </div>
         </div>
       </div>
