@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import '../App.css';
 
 import NavBar from './NavBar';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import MainPage from './MainPage';
 import OrderPage from './OrderPage';
 import AddNew from './AddNew';
@@ -10,12 +10,25 @@ import AddNew from './AddNew';
 function App() {
   const [items, setItems] = useState([])
   const [admin, setAdmin] = useState(false)
+  const history = useHistory()
 
   useEffect(()=> {
     fetch('http://localhost:3000/data')
     .then(r=>r.json())
     .then(data => setItems(data))
   },[])
+
+  function onHandleUpdate(updatedItem) {
+    const updatedItems = items.map(item => {
+      if(item.id === updatedItem.id) {
+        return updatedItem
+      } else {
+        return item
+      }
+    })
+    setItems(updatedItems)
+    history.push('/')
+  }
 
   return (
     <div className="App">
@@ -32,7 +45,7 @@ function App() {
           <div>Cart Page</div>
         </Route>
         <Route path="/new/:id">
-          <AddNew items={items}/>
+          <AddNew items={items} onHandleUpdate={onHandleUpdate}/>
         </Route>
       </Switch>
     </div>

@@ -5,7 +5,6 @@ const data = [
     img : "url",
     description : "Born in France",
     location : "Champaign",
-    upload_date : "12-01-22",
     price : 120000,
   },
 
@@ -15,7 +14,6 @@ const data = [
     img : "url",
     description : "Born in Seoul",
     location : "Champaign",
-    upload_date : "12-01-22",
     price : 110000,
   },
 
@@ -25,7 +23,6 @@ const data = [
     img : "url",
     description : "Born in the States",
     location : "Champaign",
-    upload_date : "12-01-22",
     price : 130000
   }
 ] 

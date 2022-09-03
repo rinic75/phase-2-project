@@ -5,7 +5,7 @@ function OrderPage({items}) {
   
   const {id} = useParams()
   const history = useHistory()
-  const {title, img, location, upload_date, price} = items[id]
+  const {title, img, location, price} = items[id]
 
   return (
     <div className="container">
@@ -16,7 +16,6 @@ function OrderPage({items}) {
         <div className="col-md-6 mt-4">
           <h4 className="pt-5">{title}</h4>
           <p>Location : {location}</p>
-          <p>Posted at {upload_date}</p>
           <p>${price}</p>
           <button className="btn btn-danger">Add Cart</button>
           &nbsp;

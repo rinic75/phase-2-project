@@ -2,21 +2,19 @@
   "data": [
     {
       "id": 0,
-      "title": "White and Black",
+      "title": "White and Blue",
       "img": "url",
       "description": "Born in France",
       "location": "Champaign",
-      "upload_date": "12-01-22",
-      "price": 120000
+      "price": "120"
     },
     {
       "id": 1,
-      "title": "Red Knit",
+      "title": "Mizuno JPX",
       "img": "url",
-      "description": "Born in Seoul",
-      "location": "Champaign",
-      "upload_date": "12-01-22",
-      "price": 110000
+      "description": "Golf Iron",
+      "location": "Urbana",
+      "price": "130"
     },
     {
       "id": 2,
@@ -24,7 +22,6 @@
       "img": "url",
       "description": "Born in the States",
       "location": "Champaign",
-      "upload_date": "12-01-22",
       "price": 130000
     }
   ]

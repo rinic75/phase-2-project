@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 
-function AddNew({ items }) {
+function AddNew({ items, onHandleUpdate }) {
   const {id} = useParams();
   const {title, img, description, location, price} = items[id]
   const [form, setForm] = useState({
@@ -17,10 +17,23 @@ function AddNew({ items }) {
     setForm({...form, [id]: value})
     console.log(form)
   }
+  function handleSubmit(e) {
+    e.preventDefault()
+    fetch(`http://localhost:3000/data/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type" : "application/json"
+      },
+      body: JSON.stringify(form)
+    })
+    .then(r=>r.json())
+    .then(updatedItem => onHandleUpdate(updatedItem))
+    
+  }
 
   return(
   
-    <Form >
+    <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="title">
         <Form.Label>Title</Form.Label>
         <Form.Control type="text" placeholder={title} onChange={handleChange} />
