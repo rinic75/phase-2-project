@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import ItemModal from "./Modal";
 
-function ItemCard({ item, admin, onHandleDelete }) {
+function ItemCard({ item, admin, onHandleDelete, onHandleCart }) {
   const { id, img, title, price } = item
   const history= useHistory();
   const [isOpen, setOpen] = useState(false)
@@ -23,6 +23,7 @@ function ItemCard({ item, admin, onHandleDelete }) {
   }
   function handleButtonClick(e) {
     e.stopPropagation()
+    onHandleCart(item)
     history.push(`/cart`)
   }
   return (

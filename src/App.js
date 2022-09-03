@@ -12,6 +12,7 @@ function App() {
   const [items, setItems] = useState([])
   const [admin, setAdmin] = useState(false)
   const [search, setSearch] = useState("")
+  const [cartItem, setCartItem] = useState([])
   const history = useHistory()
 
   useEffect(()=> {
@@ -44,15 +45,19 @@ function App() {
     return item.title.toLowerCase().includes(search.toLocaleLowerCase())
   })
 
+  function handleCart(item) {
+    setCartItem([...cartItem, item])
+  }
+
   return (
     <div className="App">
       <NavBar admin={admin} setAdmin={setAdmin} onSearch={setSearch}/>      
       <Switch>
         <Route exact path="/">
-          <MainPage items={searchedItem} admin={admin} onHandleDelete={handleDelete}/>
+          <MainPage items={searchedItem} admin={admin} onHandleDelete={handleDelete} onHandleCart={handleCart}/>
         </Route>
         <Route path="/cart">
-          <Cart />
+          <Cart cartItem={cartItem}/>
         </Route>
         <Route path="/edit/:id">
           <EditItem items={items} onHandleUpdate={handleUpdate}/>
