@@ -35,7 +35,7 @@ function App() {
     setItems(updatedItems)
   }
   function handleNewItem(newItem) {
-    setItems(...items, newItem)
+    setItems([...items, newItem])
     history.push('/')
   }
 
@@ -52,7 +52,7 @@ function App() {
         <Route path="/cart">
           <div>Cart Page</div>
         </Route>
-        <Route path="/new/:id">
+        <Route path="/edit/:id">
           <EditItem items={items} onHandleUpdate={handleUpdate}/>
         </Route>
         <Route path="/new">

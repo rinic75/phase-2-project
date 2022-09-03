@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 
-function AddNew({ items, onHandleUpdate }) {
+function EditItem({ items, onHandleUpdate }) {
   const {id} = useParams();
-  const {title, img, description, location, price} = items[id]
+  const {title, img, description, price} = items[id]
+  
    
   const [form, setForm] = useState({
     title: "",
     img: "",
     description: "",
-    location: "",
     price: ""
   })
   function handleChange(e) {
@@ -46,10 +46,6 @@ function AddNew({ items, onHandleUpdate }) {
         <Form.Label>Description</Form.Label>
         <Form.Control as="textarea" rows={3} placeholder={description} onChange={handleChange}/>
       </Form.Group>
-      <Form.Group className="mb-3" controlId="location">
-        <Form.Label>Location</Form.Label>
-        <Form.Control type="text" placeholder={location} onChange={handleChange}/>
-      </Form.Group>
       <Form.Group className="mb-3" controlId="price">
         <Form.Label>Price</Form.Label>
         <Form.Control type="text" placeholder={price} onChange={handleChange}/>
@@ -62,4 +58,4 @@ function AddNew({ items, onHandleUpdate }) {
   )
 }
 
-export default AddNew
+export default EditItem

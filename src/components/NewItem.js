@@ -6,7 +6,6 @@ function NewItem({ onAddItem }) {
     title: "",
     img: "",
     description: "",
-    location: "",
     price: ""
   })
   function handleChange(e) {
@@ -39,10 +38,6 @@ function NewItem({ onAddItem }) {
       <Form.Group className="mb-3" controlId="description">
         <Form.Label>Description</Form.Label>
         <Form.Control as="textarea" rows={3} onChange={handleChange} />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="location">
-        <Form.Label>Location</Form.Label>
-        <Form.Control type="text" onChange={handleChange} />
       </Form.Group>
       <Form.Group className="mb-3" controlId="price">
         <Form.Label>Price</Form.Label>

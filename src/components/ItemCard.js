@@ -11,7 +11,7 @@ function ItemCard({ item, admin, onHandleDelete }) {
   }
   function handleEditClick(e) {
     e.stopPropagation()
-    history.push(`/new/${id}`)
+    history.push(`/edit/${id}`)
   }
   function handleDelete(e) {
     e.stopPropagation()
