@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 function AddNew({ items, onHandleUpdate }) {
   const {id} = useParams();
   const {title, img, description, location, price} = items[id]
+   
   const [form, setForm] = useState({
     title: "",
     img: "",
@@ -15,7 +16,6 @@ function AddNew({ items, onHandleUpdate }) {
   function handleChange(e) {
     const {id, value} = e.target
     setForm({...form, [id]: value})
-    console.log(form)
   }
   function handleSubmit(e) {
     e.preventDefault()
@@ -55,7 +55,7 @@ function AddNew({ items, onHandleUpdate }) {
         <Form.Control type="text" placeholder={price} onChange={handleChange}/>
       </Form.Group>
       <Button variant="primary" type="submit">
-        Submit
+        Edit
       </Button>
     </Form>
     

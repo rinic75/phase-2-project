@@ -5,7 +5,8 @@ import NavBar from './NavBar';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import MainPage from './MainPage';
 import OrderPage from './OrderPage';
-import AddNew from './AddNew';
+import EditItem from './EditItem';
+import NewItem from './NewItem';
 
 function App() {
   const [items, setItems] = useState([])
@@ -18,7 +19,7 @@ function App() {
     .then(data => setItems(data))
   },[])
 
-  function onHandleUpdate(updatedItem) {
+  function handleUpdate(updatedItem) {
     const updatedItems = items.map(item => {
       if(item.id === updatedItem.id) {
         return updatedItem
@@ -29,18 +30,21 @@ function App() {
     setItems(updatedItems)
     history.push('/')
   }
-  function onHandleDelete (id) {
+  function handleDelete (id) {
     const updatedItems = items.filter(item => item.id !== id)
     setItems(updatedItems)
+  }
+  function handleNewItem(newItem) {
+    setItems(...items, newItem)
+    history.push('/')
   }
 
   return (
     <div className="App">
-
       <NavBar admin={admin} setAdmin={setAdmin} />      
       <Switch>
         <Route exact path="/">
-          <MainPage items={items} admin={admin} onHandleDelete={onHandleDelete}/>
+          <MainPage items={items} admin={admin} onHandleDelete={handleDelete}/>
         </Route>
         <Route path="/order/:id">
           <OrderPage items={items}/>
@@ -49,7 +53,10 @@ function App() {
           <div>Cart Page</div>
         </Route>
         <Route path="/new/:id">
-          <AddNew items={items} onHandleUpdate={onHandleUpdate}/>
+          <EditItem items={items} onHandleUpdate={handleUpdate}/>
+        </Route>
+        <Route path="/new">
+          <NewItem onAddItem={handleNewItem} />
         </Route>
       </Switch>
     </div>
