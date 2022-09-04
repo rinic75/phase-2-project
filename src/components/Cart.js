@@ -2,14 +2,15 @@ import React from "react";
 import { Table } from "react-bootstrap";
 
 function Cart({ cartItem }) {
-  const { title, price } = cartItem
-  const renderCartItem = cartItem.map(item => {
+
+  const totalPrice = cartItem.reduce((acc, item) => acc + parseInt(item.price), 0)
+
+  const renderCartItem = cartItem.map((item, i) => {
     return (
       <tr>
-        <td>1</td>
+        <td>{i+1}</td>
         <td>{item.title}</td>
         <td>{item.price}</td>
-        <td>example</td>
       </tr>
     )
   }
@@ -22,11 +23,15 @@ function Cart({ cartItem }) {
           <th>#</th>
           <th>item</th>
           <th>Price</th>
-          <th>edit</th>
         </tr>
       </thead>
       <tbody>
         {renderCartItem}
+        <tr>
+        <td>Total</td>
+        <td></td>
+        <td>{totalPrice}</td>
+      </tr>
       </tbody>
     </Table>
   )
