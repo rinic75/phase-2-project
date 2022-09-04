@@ -8,7 +8,7 @@ function Cart({ cartItem }) {
   const renderCartItem = cartItem.map((item, i) => {
     return (
       <tr>
-        <td>{i+1}</td>
+        <td>{i + 1}</td>
         <td>{item.title}</td>
         <td>{item.price}</td>
       </tr>
@@ -28,10 +28,10 @@ function Cart({ cartItem }) {
       <tbody>
         {renderCartItem}
         <tr>
-        <td>Total</td>
-        <td></td>
-        <td>{totalPrice}</td>
-      </tr>
+          <td>Total</td>
+          <td></td>
+          <td>{totalPrice}</td>
+        </tr>
       </tbody>
     </Table>
   )

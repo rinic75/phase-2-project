@@ -7,7 +7,7 @@ function MainPage({items, admin, onHandleDelete, onHandleCart}) {
       <div className='MainPage'>
         <div className="container-fluid text-light p-5">
           <div className="container p-5">
-            <h1 className="display-3">JFF Pro Shop</h1>
+            <h1 className="display-3">Golf Pro Shop</h1>
             <p>Golf Club</p>
           </div>
         </div>
